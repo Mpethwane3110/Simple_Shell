@@ -10,23 +10,22 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int index, i;
+	int i, j;
 	char *s = dest;
 
-	index = 0;
-
-	while (src[index] != '\0' && index < n - 1)
+	i = 0;
+	while (src[i] != '\0' && i < n - 1)
 	{
-		dest[index] = src[index];
-		index++;
+		dest[i] = src[i];
+		i++;
 	}
-	if (index < n)
+	if (i < n)
 	{
-		index = i;
-		while (index < n)
+		j = i;
+		while (j < n)
 		{
-			dest[index] = '\0';
-			index++;
+			dest[j] = '\0';
+			j++;
 		}
 	}
 	return (s);
@@ -42,38 +41,38 @@ char *_strncpy(char *dest, char *src, int n)
 
 char *_strncat(char *dest, char *src, int n)
 {
-	int index, j;
+	int i, j;
 	char *s = dest;
 
-	index = 0;
+	i = 0;
 	j = 0;
-
-	while (dest[index] != '\0')
-		index++;
+	while (dest[i] != '\0')
+		i++;
 	while (src[j] != '\0' && j < n)
 	{
-		dest[index] = src[j];
-		index++;
+		dest[i] = src[j];
+		i++;
 		j++;
 	}
 	if (j < n)
-		dest[index] = '\0';
+		dest[i] = '\0';
 	return (s);
 }
 
+
 /**
  *_strchr - function to locate a character in a string
- *@string: the string to be parsed
+ *@s: the string to be parsed
  *@c: the character to locate
  *Return: ptr
  */
 
-char *_strchr(const char *string, char c)
+char *_strchr(char *s, char c)
 {
 	do {
-		if (*string == c)
-			return(string);
-	} while (*string++ != '\0');
+		if (*s == c)
+			return (s);
+	} while (*s++ != '\0');
 
 	return (NULL);
 }

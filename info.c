@@ -9,17 +9,17 @@
 
 int hsh(info_t *info, char **av)
 {
-	ssize_t inpt_lngth = 0;
+	ssize_t r = 0;
 	int builtin_ret = 0;
 
-	while (inpt_lngth != -1 && builtin_ret != -2)
+	while (r != -1 && builtin_ret != -2)
 	{
 		clear_info(info);
 		if (interactive(info))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
-		inpt_lngth = get_input(info);
-		if (inpt_lngth != -1)
+		r = get_input(info);
+		if (r != -1)
 		{
 			set_info(info, av);
 			builtin_ret = find_builtin(info);
@@ -41,6 +41,7 @@ int hsh(info_t *info, char **av)
 		exit(info->err_num);
 	}
 	return (builtin_ret);
+}
 
 /**
  * find_builtin - function that finds the builtin command
