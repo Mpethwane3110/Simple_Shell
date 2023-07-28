@@ -2,9 +2,9 @@
 #include "shell.h"
 
 /**
- * _myhistory - displays the hist. list
+ * _myhistory - displa\ing the hist. list
  * @info: the strct with the no. of args
- *  Return: 0
+ *  Return: (0)
  */
 
 int _myhistory(info_t *info)
@@ -17,7 +17,7 @@ int _myhistory(info_t *info)
  * unset_alias - sets alias to strng
  * @info: parameter struct
  * @str: the string alias
- * Return: 0 on success, 1 on unsucess
+ * Return: (0) on success, (1) on unsucess
  */
 
 int unset_alias(info_t *info, char *str)
@@ -40,7 +40,7 @@ int unset_alias(info_t *info, char *str)
  * set_alias - sets alias to string
  * @info: parameter struct
  * @str: the string alias
- * Return: 0 on success, 1 if unsuccessful
+ * Return: (0) on success, (1) if unsuccessful
  */
 
 int set_alias(info_t *info, char *str)
@@ -58,9 +58,9 @@ int set_alias(info_t *info, char *str)
 }
 
 /**
- * print_alias - prints the alias string
+ * print_alias - fun prints the alias string
  * @node: the alias node
- * Return: 0 if successful, 1 if unsuccessful
+ * Return: (0) if successful, (1) if unsuccessful
  */
 
 int print_alias(list_t *node)
@@ -81,9 +81,9 @@ int print_alias(list_t *node)
 }
 
 /**
- * _myalias - mimics the alias command builtin
+ * _myalias - fun that mimics the alias cmd builtin
  * @info: the strct no. of args
- *  Return: 0
+ *  Return: (0)
  */
 
 int _myalias(info_t *info)
