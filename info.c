@@ -85,35 +85,41 @@ int find_builtin(info_t *info)
 
 void find_cmd(info_t *info)
 {
-    char *path = NULL;
-    int index, k;
-    info->path = info->argv[0];
-    if (info->linecount_flag == 1) {
-        info->line_count++;
-        info->linecount_flag = 0;
-    }
-    for (index = 0, k = 0; info->arg[index]; index++)
-        if (!is_delim(info->arg[index], " \t\n"))
-            k++;
-    if (!k)
-        return;
-    path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
-    if (path) {
-        info->path = path;
-        fork_cmd(info);
-    } else {
-        if ((interactive(info) || _getenv(info, "PATH=")
-            || info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
-            fork_cmd(info);
-        else if (*(info->arg) != '\n') {
-            info->status = 127;
-            print_error(info, "not found\n");
-        }
-    }
+	char *path = NULL;
+	int index, k;
+
+	info->path = info->argv[0];
+	if (info->linecount_flag == 1)
+	{
+		info->line_count++;
+		info->linecount_flag = 0;
+	}
+	for (index = 0, k = 0; info->arg[index]; index++)
+		if (!is_delim(info->arg[index], " \t\n"))
+			k++;
+	if (!k)
+		return;
+	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	if (path)
+	{
+		info->path = path;
+		fork_cmd(info);
+	}
+	else
+	{
+		if ((interactive(info) || _getenv(info, "PATH=")
+					|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+			fork_cmd(info);
+		else if (*(info->arg) != '\n')
+		{
+			info->status = 127;
+			print_error(info, "not found\n");
+		}
+	}
 }
 
 /**
- * fork_cmd - function to forks a an exec thread to run cmd 
+ * fork_cmd - function to forks a an exec thread to run cmd
  * @info: the parameter & return memory adress of struct
  * Return: void
  */

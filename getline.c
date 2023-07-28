@@ -1,5 +1,6 @@
 #include "shell.h"
 #include <stddef.h>
+
 /**
  * _getline - gets input from STDIN
  * @info: prmtr struct
@@ -29,7 +30,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, s, s ? s + k : k + 1);
-	if (!new_p) /* MALLOC FAILURE! */
+	if (!new_p)
 		return (p ? free(p), -1 : -1);
 
 	if (s)
@@ -46,6 +47,27 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	*ptr = p;
 	return (s);
 }
+
+/**
+ * read_buf - function to read a buffer
+ * @info: parameter structure
+ * @buf: the buffer
+ * @i: the size
+ *
+ * Return: (r)
+ */
+ssize_t read_buf(info_t *info, char *buf, size_t *i)
+{
+	ssize_t r = 0;
+
+	if (*i)
+		return (0);
+	r = read(info->readfd, buf, READ_BUF_SIZE);
+	if (r >= 0)
+		*i = r;
+	return (r);
+}
+
 
 /**
  * sigintHandler - fun that blocks ctrl-C
