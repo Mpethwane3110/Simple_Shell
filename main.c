@@ -4,7 +4,7 @@
  * main - the entry point
  * @ac: argurment count
  * @av: argurment vector
- * Return: 0 on success, 1 on error
+ * Return: (0) on success, (1) on error
  */
 
 int main(int ac, char **av)
@@ -27,7 +27,7 @@ int main(int ac, char **av)
 			if (errno == ENOENT)
 			{
 				_eputs(av[0]);
-				_eputs(": 0: Can't open ");
+				_eputs(": 0: Cannot open ");
 				_eputs(av[1]);
 				_eputchar('\n');
 				_eputchar(BUF_FLUSH);
@@ -42,4 +42,3 @@ int main(int ac, char **av)
 	hsh(info, av);
 	return (EXIT_SUCCESS);
 }
-

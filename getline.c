@@ -53,40 +53,37 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 
 ssize_t get_input(info_t *info)
 {
-        static char *buf; /* the ';' command chain buffer */
-        static size_t i, j, len;
-        ssize_t r = 0;
-        char **buf_p = &(info->arg), *p;
+	static char *buf;
+	static size_t i, j, len;
+	ssize_t r = 0;
+	char **buf_p = &(info->arg), *p;
 
-        _putchar(BUF_FLUSH);
-        r = input_buf(info, &buf, &len);
-        if (r == -1) /* EOF */
-                return (-1);
-        if (len)
-                {
-                j = i;
-                p = buf + i;
-                check_chain(info, buf, &j, i, len);
-                while (j < len)
-                        {
-                        if (is_chain(info, buf, &j))
-                                break;
-                        j++;
-                }
-
-                i = j + 1;
-                if (i >= len)
-                        {
-                        i = len = 0;
-                        info->cmd_buf_type = CMD_NORM;
-                }
-
-                *buf_p = p;
-                return (_strlen(p));
-                }
-
-        *buf_p = buf;
-        return (r);
+	_putchar(BUF_FLUSH);
+	r = input_buf(info, &buf, &len);
+	if (r == -1)
+		return (-1);
+	if (len)
+	{
+		j = i;
+		p = buf + i;
+		check_chain(info, buf, &j, i, len);
+		while (j < len)
+		{
+			if (is_chain(info, buf, &j))
+				break;
+			j++;
+		}
+		i = j + 1;
+		if (i >= len)
+		{
+			i = len = 0;
+			info->cmd_buf_type = CMD_NORM;
+		}
+		*buf_p = p;
+		return (_strlen(p));
+	}
+	*buf_p = buf;
+	return (r);
 }
 
 /**
@@ -138,7 +135,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, s, s ? s + k : k + 1);
-	if (!new_p) /* MALLOC FAILURE! */
+	if (!new_p)
 		return (p ? free(p), -1 : -1);
 
 	if (s)

@@ -3,7 +3,7 @@
 /**
  * get_environ - function that will return a strng array copy of the env
  * @info: struct with args
- * Return: 0
+ * Return: (0)
  */
 
 char **get_environ(info_t *info)
@@ -22,7 +22,7 @@ char **get_environ(info_t *info)
  * _unsetenv - fun that removes an env var
  * @info: struct args
  * @var: the string env var
- * Return: 1 on success or 0 otherwise
+ * Return: (1) on success or (0) otherwise
  */
 
 int _unsetenv(info_t *info, char *var)
@@ -55,7 +55,7 @@ int _unsetenv(info_t *info, char *var)
  * @info: struct args
  * @value: env var value
  * @var: env var
- * Return: 0
+ * Return: (0)
  */
 int _setenv(info_t *info, char *var, char *value)
 {

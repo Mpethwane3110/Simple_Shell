@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * _erratoi - fun to convert a string to a no.
- * @s: string to be converted
- * Return: 0 or converted no.
+ * _erratoi - fun converting a string to a no.
+ * @s: string we converting
+ * Return: (0) or converted no.
  */
 
 int _erratoi(char *s)
@@ -29,10 +29,10 @@ int _erratoi(char *s)
 }
 
 /**
- * print_error - fun to print error text
+ * print_error - fun to print the error text
  * @info: param
  * @estr: error type
- * Return: 0 or converted number
+ * Return: (0) or converted number
  */
 
 void print_error(info_t *info, char *estr)
@@ -124,7 +124,7 @@ char *convert_number(long int num, int base, int flags)
 /**
  * remove_comments - fun that replaces # with '/0'
  * @buf: ptr to modify
- * Return: 0
+ * Return: (0)
  */
 
 void remove_comments(char *buf)

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * **strtow - fun that splits a string into words
+ * **strtow - fun splitting a string into words
  * @str: input string
  * @d: delim string
  * Return: ptrto an array
@@ -50,7 +50,7 @@ char **strtow(char *str, char *d)
 
 
 /**
- * **strtow2 - fu that splits a string into wordds
+ * **strtow2 - function splitting a string into wordds
  * @d: delim
  * @str: input atring
  * Return: ptr  or NULL

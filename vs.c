@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * is_chain - check curr char in a chain delim
+ * is_chain - checking for the curr char in a chain delim
  * @info: the param buf
  * @p: ptr: curr position
  * @buf: char buf
- * Return: 1 in chain delim
+ * Return: (1) in chain delim
  */
 
 int is_chain(info_t *info, char *buf, size_t *p)
@@ -33,7 +33,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
 }
 
 /**
- * check_chain - status check if to continue chaining
+ * check_chain - status checking if to continue chaining
  * @info: param struct
  * @p: ptr
  * @buf: buf
@@ -136,10 +136,10 @@ int replace_vars(info_t *info)
 }
 
 /**
- * replace_string - fun that replaces stng
+ * replace_string - fun for replacing a string
  * @old: the address of old string
  * @new: point to the new string
- * Return: 1 if replaced, 0 if failed to replace
+ * Return: (1) if replaced, (0) if failed to replace
  */
 int replace_string(char **old, char *new)
 {

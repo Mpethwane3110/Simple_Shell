@@ -4,7 +4,7 @@
  * hsh - the main shell loop hsh
  * @info: the parameter struct info
  * @av: the argument vector
- * Return: 0 on success, 1 on failure
+ * Return: (0) on success, (1) on failure
  */
 
 int hsh(info_t *info, char **av)
@@ -46,10 +46,10 @@ int hsh(info_t *info, char **av)
 /**
  * find_builtin - function that finds the builtin command
  * @info: the param & return info struct
- * Return: -1 when the builtin command not found,
- *			0 if the builtin gets executed successfully,
- *			1 if the builtin is found but not executed successfully,
- *	-2 if the builtin exitthe shell
+ * Return: (-1) when the builtin command not found,
+ * (0) executed successfully,
+ * (1) found but not executed successfully,
+ * (-2) if the builtin exitthe shell
  */
 
 int find_builtin(info_t *info)
@@ -113,14 +113,14 @@ void find_cmd(info_t *info)
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
-			print_error(info, "not found\n");
+			print_error(info, "not available\n");
 		}
 	}
 }
 
 /**
- * fork_cmd - function to forks a an exec thread to run cmd
- * @info: the parameter & return memory adress of struct
+ * fork_cmd - function to fork an exec thread to run cmd
+ * @info: the parameter & ptr of struct
  * Return: void
  */
 
@@ -151,7 +151,7 @@ void fork_cmd(info_t *info)
 		{
 			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
-				print_error(info, "Permission denied\n");
+				print_error(info, "Permission not granted\n");
 		}
 	}
 }

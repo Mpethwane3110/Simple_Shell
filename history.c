@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * get_history_file - fu to get hist file
+ * get_history_file - function of finding history files
  * @info: param struct
  * Return: hist. file
  */
@@ -26,7 +26,7 @@ char *get_history_file(info_t *info)
 /**
  * write_history - fun to create a file and append
  * @info: param struct
- * Return: 1 on success and -1 on failure
+ * Return: (1) on success and (-1) on failure
  */
 
 int write_history(info_t *info)
@@ -53,9 +53,9 @@ int write_history(info_t *info)
 }
 
 /**
- * read_history - fun to read hist,
+ * read_history - function reading hist,
  * @info: param struct
- * Return: history count or 0 if failed
+ * Return: history count or (0) if failed
  */
 
 int read_history(info_t *info)
@@ -102,7 +102,7 @@ int read_history(info_t *info)
 }
 
 /**
- * build_history_list - fun that adds entry to a hist. list
+ * build_history_list - function adding entry to a hist. list
  * @info: struct with args
  * @buf: buf
  * @linecount: history count
